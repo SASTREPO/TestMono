@@ -1,0 +1,21 @@
+**/target/
+javascript-analysis/target
+javascript-core/target
+
+*.dot
+*.log
+**/missingImports.json
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.pdf
+
+package-lock.json
+
+### Eclipse ###
+.classpath
+.project
+.settings/
