@@ -1,0 +1,13 @@
+﻿@model LinkMenuItemPartEditViewModel
+
+<h5>@T["Link Menu Item"]</h5>
+
+<div class="mb-3">
+    <label asp-for="Name">@T["Name"]</label>
+    <input asp-for="Name" class="form-control" autofocus />
+</div>
+
+<div class="mb-3">
+    <label asp-for="Url">@T["Url"]</label>
+    <input asp-for="Url" class="form-control" />
+</div>

@@ -1,0 +1,30 @@
+{
+  "Content_PublishButton": [
+    {
+      "place": "Actions:5"
+    }
+  ],
+  "Content_SaveButton": [
+    {
+      "place": "Actions:6"
+    }
+  ],
+  "Parts_Contents_Publish": [
+    {
+      "displayType": "Detail",
+      "place": "Content:5"
+    }
+  ],
+  "Parts_Contents_Publish_SummaryAdmin": [
+    {
+      "displayType": "SummaryAdmin",
+      "place": "Actions:5"
+    }
+  ],
+  "Parts_Contents_Clone_SummaryAdmin": [
+    {
+      "displayType": "SummaryAdmin",
+      "place": "Actions:6"
+    }
+  ]
+}

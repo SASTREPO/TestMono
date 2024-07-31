@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN"
+        "https://struts.apache.org/dtds/struts-6.0.dtd">
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.mapper.action.prefix.enabled" value="true"/>
+    <constant name="struts.custom.i18n.resources" value="global" />
+
+    <package name="basicstruts2" extends="struts-default">
+        <interceptors>
+            <interceptor name="inter1" class="io.mend.interceptor.CustomInterceptor1"/>
+            <interceptor name="inter2" class="io.mend.interceptor.CustomInterceptor2"/>
+            <interceptor-stack name="myInterceptorStack">
+                <interceptor-ref name="inter1"/>
+                <interceptor-ref name="inter2"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <default-action-ref name="index"/>
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+
+        <action name="hello" class="io.mend.action.HelloWorldAction" method="execute">
+            <interceptor-ref name = "defaultStack">
+                <param name="exception.logEnabled">true</param>
+                <param name="exception.logLevel">ERROR</param>
+                <param name="params.excludeParams">blocked, dojo..*,^struts..*,^session..*,^request..*,^application..*,^servlet(Request|Response)..*,parameters...*</param>
+            </interceptor-ref>
+            <interceptor-ref name = "myInterceptorStack"/>
+            <result name="success">/HelloWorld.jsp</result>
+        </action>
+
+        <action name="Login" class="io.mend.action.Login">
+            <result name="input">/Login.jsp</result>
+            <result type="redirectAction">index</result>
+        </action>
+
+        <action name="search" class="io.mend.action.Search" method="input">
+            <result name="input">/search.jsp</result>
+        </action>
+        <action name="search-cancel" class="io.mend.action.Search" method="cancel">
+            <result type="redirectAction">index</result>
+        </action>
+        <action name="search-submit" class="io.mend.action.Search" method="execute">
+            <result name="success">/result.jsp</result>
+            <result name="input">/search.jsp</result>
+        </action>
+
+        <action name="search-lombok" class="io.mend.action.SearchLombok" method="input">
+            <result name="input">/search-lombok.jsp</result>
+        </action>
+        <action name="search-lombok-cancel" class="io.mend.action.SearchLombok" method="cancel">
+            <result type="redirectAction">index</result>
+        </action>
+        <action name="search-lombok-submit" class="io.mend.action.SearchLombok" method="execute">
+            <result name="success">/result.jsp</result>
+            <result name="input">/search-lombok.jsp</result>
+        </action>
+    </package>
+</struts>

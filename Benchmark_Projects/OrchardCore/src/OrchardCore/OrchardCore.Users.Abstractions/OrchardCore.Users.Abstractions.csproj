@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>OrchardCore.Users</RootNamespace>
+    <TargetFrameworks>$(CommonTargetFrameworks)</TargetFrameworks>
+    <!-- NuGet properties-->
+    <Title>OrchardCore Users Abstractions</Title>
+    <Description>$(OCCMSDescription)
+
+    Abstractions for Users module.</Description>
+    <PackageTags>$(PackageTags) OrchardCoreCMS Abstractions</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>
